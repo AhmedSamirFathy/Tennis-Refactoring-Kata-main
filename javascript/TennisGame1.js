@@ -1,5 +1,4 @@
-const drawStatus = ["Love-All", "Fifteen-All", "Thirty-All"]
-const ongoingScoreStatus = ["Love", "Fifteen", "Thirty"]
+const scoreStatus = ["Love", "Fifteen", "Thirty", "Forty"]
 
 class TennisGame1{
     constructor(player1Name, player2Name) {
@@ -16,11 +15,11 @@ class TennisGame1{
             this.m_score2 += 1;
     }
 
-    getDrawMessage(score){
-        if (score >= 3){
-            return "Deuce"
+    getDrawMessage(){
+        if (this.m_score1 >= 3){
+            return "Deuce";
         }else{
-            return drawStatus[score]
+            return `${scoreStatus[this.m_score1]-'All'}`;
         }
     }
 
@@ -33,7 +32,7 @@ class TennisGame1{
     }
 
     getOngoingGameMessage(){
-        return `${ongoingScoreStatus[this.m_score1]-ongoingScoreStatus[this.m_score2]}`
+        return `${scoreStatus[this.m_score1]-scoreStatus[this.m_score2]}`
     }
 
     getScore(){
