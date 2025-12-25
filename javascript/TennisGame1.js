@@ -13,53 +13,53 @@ TennisGame1.prototype.wonPoint = function(playerName) {
 };
 
 TennisGame1.prototype.getScore = function() {
-    var score = "";
-    var tempScore = 0;
+    var finalGameResult = "";
+    var tempGameResult = 0;
     if (this.m_score1 === this.m_score2) {
         switch (this.m_score1) {
             case 0:
-                score = "Love-All";
+                finalGameResult = "Love-All";
                 break;
             case 1:
-                score = "Fifteen-All";
+                finalGameResult = "Fifteen-All";
                 break;
             case 2:
-                score = "Thirty-All";
+                finalGameResult = "Thirty-All";
                 break;
             default:
-                score = "Deuce";
+                finalGameResult = "Deuce";
                 break;
         }
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
         var minusResult = this.m_score1 - this.m_score2;
-        if (minusResult === 1) score = "Advantage player1";
-        else if (minusResult === -1) score = "Advantage player2";
-        else if (minusResult >= 2) score = "Win for player1";
-        else score = "Win for player2";
+        if (minusResult === 1) finalGameResult = "Advantage player1";
+        else if (minusResult === -1) finalGameResult = "Advantage player2";
+        else if (minusResult >= 2) finalGameResult = "Win for player1";
+        else finalGameResult = "Win for player2";
     } else {
         for (var i = 1; i < 3; i++) {
-            if (i === 1) tempScore = this.m_score1;
+            if (i === 1) tempGameResult = this.m_score1;
             else {
-                score += "-";
-                tempScore = this.m_score2;
+                finalGameResult += "-";
+                tempGameResult = this.m_score2;
             }
-            switch (tempScore) {
+            switch (tempGameResult) {
                 case 0:
-                    score += "Love";
+                    finalGameResult += "Love";
                     break;
                 case 1:
-                    score += "Fifteen";
+                    finalGameResult += "Fifteen";
                     break;
                 case 2:
-                    score += "Thirty";
+                    finalGameResult += "Thirty";
                     break;
                 case 3:
-                    score += "Forty";
+                    finalGameResult += "Forty";
                     break;
             }
         }
     }
-    return score;
+    return finalGameResult;
 };
 
 if (typeof window === "undefined") {
