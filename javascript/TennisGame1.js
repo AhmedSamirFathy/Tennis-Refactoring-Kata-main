@@ -28,7 +28,7 @@ class TennisGame1{
         let tempGameResult = 0;
 
         if (this.m_score1 === this.m_score2) {
-            this.getDrawMessage(this.m_score1)
+            finalGameResult = this.getDrawMessage(this.m_score1)
 
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
             let minusResult = this.m_score1 - this.m_score2;
