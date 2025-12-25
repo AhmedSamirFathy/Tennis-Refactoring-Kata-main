@@ -15,25 +15,20 @@ class TennisGame1{
             this.m_score2 += 1;
     }
 
+    getDrawMessage(score){
+        if (score >= 3){
+            return "Deuce"
+        }else{
+            return drawStatus[score]
+        }
+    }
+
     getScore(){
         let finalGameResult = "";
         let tempGameResult = 0;
 
         if (this.m_score1 === this.m_score2) {
-            switch (this.m_score1) {
-                case 0:
-                    finalGameResult = drawStatus[0];
-                    break;
-                case 1:
-                    finalGameResult = drawStatus[1];
-                    break;
-                case 2:
-                    finalGameResult = drawStatus[2];
-                    break;
-                default:
-                    finalGameResult = "Deuce";
-                    break;
-            }
+            this.getDrawMessage(this.m_score1)
 
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
             let minusResult = this.m_score1 - this.m_score2;
