@@ -1,3 +1,5 @@
+const drawStatus = ["Love-All", "Fifteen-All", "Thirty-All"]
+
 class TennisGame1{
     constructor(player1Name, player2Name) {
         this.m_score1 = 0;
@@ -20,13 +22,13 @@ class TennisGame1{
         if (this.m_score1 === this.m_score2) {
             switch (this.m_score1) {
                 case 0:
-                    finalGameResult = "Love-All";
+                    finalGameResult = drawStatus[0];
                     break;
                 case 1:
-                    finalGameResult = "Fifteen-All";
+                    finalGameResult = drawStatus[1];
                     break;
                 case 2:
-                    finalGameResult = "Thirty-All";
+                    finalGameResult = drawStatus[2];
                     break;
                 default:
                     finalGameResult = "Deuce";
