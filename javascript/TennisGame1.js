@@ -32,6 +32,7 @@ class TennisGame1{
                     finalGameResult = "Deuce";
                     break;
             }
+
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
             let minusResult = this.m_score1 - this.m_score2;
             if (minusResult === 1) finalGameResult = "Advantage player1";
