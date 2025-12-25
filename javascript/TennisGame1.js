@@ -36,17 +36,12 @@ class TennisGame1{
     }
 
     getScore(){
-        let finalGameResult = "";
-
         if (this.m_score1 === this.m_score2) {
-            this.getDrawMessage(this.m_score1);
+            return this.getDrawMessage(this.m_score1);
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-            this.getWinningMessage();
-        } else {
-            this.getOngoingGameMessage();
+            return this.getWinningMessage();
         }
-
-        return finalGameResult;
+        return this.getOngoingGameMessage();
     }
 }
 
