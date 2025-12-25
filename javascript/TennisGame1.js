@@ -23,19 +23,23 @@ class TennisGame1{
         }
     }
 
+    getWinningMessage(){
+        let scoreDifference = this.m_score1 - this.m_score2;
+        if (scoreDifference === 1) return "Advantage player1";
+        else if (scoreDifference === -1) return  "Advantage player2";
+        else if (scoreDifference >= 2) return  "Win for player1";
+        return  "Win for player2";
+    }
+
     getScore(){
         let finalGameResult = "";
         let tempGameResult = 0;
 
         if (this.m_score1 === this.m_score2) {
-            finalGameResult = this.getDrawMessage(this.m_score1)
+            this.getDrawMessage(this.m_score1);
 
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-            let minusResult = this.m_score1 - this.m_score2;
-            if (minusResult === 1) finalGameResult = "Advantage player1";
-            else if (minusResult === -1) finalGameResult = "Advantage player2";
-            else if (minusResult >= 2) finalGameResult = "Win for player1";
-            else finalGameResult = "Win for player2";
+            this.getWinningMessage();
         } else {
             for (let i = 1; i < 3; i++) {
                 if (i === 1) tempGameResult = this.m_score1;
