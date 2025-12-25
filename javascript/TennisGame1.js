@@ -1,4 +1,5 @@
 const drawStatus = ["Love-All", "Fifteen-All", "Thirty-All"]
+const ongoingScoreStatus = ["Love", "Fifteen", "Thirty"]
 
 class TennisGame1{
     constructor(player1Name, player2Name) {
@@ -31,37 +32,19 @@ class TennisGame1{
         return  "Win for player2";
     }
 
+    getOngoingGameMessage(){
+        return `${ongoingScoreStatus[this.m_score1]-ongoingScoreStatus[this.m_score2]}`
+    }
+
     getScore(){
         let finalGameResult = "";
-        let tempGameResult = 0;
 
         if (this.m_score1 === this.m_score2) {
             this.getDrawMessage(this.m_score1);
-
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
             this.getWinningMessage();
         } else {
-            for (let i = 1; i < 3; i++) {
-                if (i === 1) tempGameResult = this.m_score1;
-                else {
-                    finalGameResult += "-";
-                    tempGameResult = this.m_score2;
-                }
-                switch (tempGameResult) {
-                    case 0:
-                        finalGameResult += "Love";
-                        break;
-                    case 1:
-                        finalGameResult += "Fifteen";
-                        break;
-                    case 2:
-                        finalGameResult += "Thirty";
-                        break;
-                    case 3:
-                        finalGameResult += "Forty";
-                        break;
-                }
-            }
+            this.getOngoingGameMessage();
         }
 
         return finalGameResult;
